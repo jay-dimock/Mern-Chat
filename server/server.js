@@ -3,17 +3,14 @@ const cors = require('cors');
 const app = express();
 const port = 8000;
 
-require('./config/mongoose.config');
+//require('./config/mongoose.config');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-const PlayerRoutes = require('./routes/player.routes');
-PlayerRoutes(app);
-
 const server = app.listen(port, () => {
-    console.log("Now listening on port " + port)
+    console.log("Now listening on port " + port) 
 });
 
 const io = require("socket.io")(server);
